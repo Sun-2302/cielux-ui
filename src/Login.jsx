@@ -10,11 +10,11 @@ const Login = () => {
     <>
       <div className='relative min-h-screen flex'>
         <div className='flex flex-col sm:flex-row items-center md:items-start sm:justify-content sm:justify-center md:justify-start flex-auto bg-white'>
-          <div className='sm:w-1/2 xl:w-3/5 h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden bg-blue-800 text-white bg-no-repeat bg-cover relative' style={{ backgroundImage: 'url(./)' }}>
+          <div className='w-[70vw] h-full hidden md:flex flex-auto items-center justify-center p-10 overflow-hidden bg-blue-800 text-white bg-no-repeat bg-cover relative' style={{ backgroundImage: 'url(./)' }}>
             <div className='absolute bg-gradient-to-b from-indigo-600 to-blue-300 opacity-75 inset-0 z-0'></div>
-            <div className='w-full max-w-md z-10'>
-              <div className='sm:text-4xl cl:text-5xl font-bold leading-tight mb-6'> CielUX </div>
-              <div className='sm:text-sm xl:text-md text-gray-200 font-normal'>Here, You manage our jobs, folders, files,... </div>
+            <div className='w-full z-10'>
+              <div className='sm:text-4xl xl:text-7xl font-bold leading-tight mb-3'> CielUX </div>
+              <div className='sm:text-lg xl:text-md text-gray-200 font-normal'>Here, You manage our jobs, folders, files,... </div>
             </div>
             <ul className="circles">
               {/* Placeholder circles */}
