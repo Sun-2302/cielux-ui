@@ -4,19 +4,41 @@ import './App.css';
 // Importez les icônes de React Icons
 import { FaFacebook, FaLinkedin, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-  const [email, setEmail] = useState(''); // État pour l'e-mail
-  const [password, setPassword] = useState(''); // État pour le mot de passe
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState(''); 
 
-  // Gestionnaire d'événement pour la saisie de l'e-mail
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  // Gestionnaire d'événement pour la saisie du mot de passe
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const url = 'https://gwfpf9wkpl.execute-api.eu-west-3.amazonaws.com/Prod/user';
+
+    axios.get(url)
+      .then(response => {
+        const user = response.data.find(user => user.email === email);
+
+        if (!user) {
+          alert("You don't have an account yet. Please Sign Up");
+        } else if (user.password === password) {
+          alert("You're now connected");
+        } else {
+          alert("Wrong Password");
+        }
+      })
+      .catch(error => {
+        console.error('Une erreur s\'est produite lors de la requête Get :', error);
+        alert("Une erreur s'est produite lors de la connexion. Veuillez réessayer plus tard.");
+      });
   };
 
   return (
@@ -60,7 +82,7 @@ const Login = () => {
                 </a>
               </div>
                  
-              <form className="mt-8 space-y-6" action="#" method="POST">
+              <form className="mt-8 space-y-6" method="POST" onSubmit={handleSubmit}>
                 <input type="hidden" name="remember" value="true" />
                 <div className="relative">
                   {email.includes('@') && (

@@ -3,19 +3,20 @@ import React, { useState } from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaGoogle } from 'react-icons/fa';
 import './App.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [username, setUsername] = useState  ('');
+    const [name, setName] = useState  ('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
 
-    const handleUsernameChange = (e) =>{
-      setUsername(e.target.value);
+    const handleNameChange = (e) =>{
+      setName(e.target.value);
     }
 
     const handlePasswordChange = (e) => {
@@ -24,6 +25,31 @@ const Register = () => {
 
     const handleConfirmPasswordChange = (e) => {
         setConfirmPassword(e.target.value);
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Empêcher le rechargement de la page
+        const url = 'https://gwfpf9wkpl.execute-api.eu-west-3.amazonaws.com/Prod/user';
+        const data = {
+            name,
+            email,
+            password
+        };
+
+        const headers = {
+        'Content-Type': 'application/json', // Exemple d'en-tête avec le type de contenu JSON
+        // Ajoutez ici d'autres en-têtes que vous souhaitez spécifier
+        };
+
+        axios.post(url, data, { headers })
+        .then(response => {
+            console.log('Réponse de la requête POST :', response.data);
+            alert("Congratulations "+name+", your account has been successfully created");
+        })
+        .catch(error => {
+            console.error('Une erreur s\'est produite lors de la requête POST :', error);
+        });
+
     };
 
     return (
@@ -66,7 +92,8 @@ const Register = () => {
                             </a>
                         </div>
 
-                        <form className="space-y-3 flex flex-col" action="#" method="POST">
+
+                        <form className="space-y-3 flex flex-col" method="POST" onSubmit={handleSubmit}>
                             <input type="hidden" name="remember" value="true" />
                             <div className="relative">
                                 {email.includes('@') && (
@@ -81,7 +108,7 @@ const Register = () => {
                             </div>
                             <div className="mt-8 content-center">
                                 <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Username</label>
-                                <input className="w-full bg-gray-300 content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="" value={username} onChange={handleUsernameChange} />
+                                <input className="w-full bg-gray-300 content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="" value={name} onChange={handleNameChange} />
                             </div>
                             <div className="mt-8 content-center relative">
                                 <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
