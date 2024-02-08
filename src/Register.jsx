@@ -43,7 +43,7 @@ const Register = () => {
                      </ul>
                 </div>
                 <div className='md:flex md:items-center md:justify-center sm:w-auto md:h-full w-2/5 xl:w-2/5 p-10 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white'>
-                    <div className='max-w-md w-full space-y-8'>
+                    <div className='max-w-md w-full space-y-2'>
                         <div className='text-center'>
                             <h2 className='mt-6 text-3xl from-bold text-blue-700'>Hello Fellow, Welcome !</h2>
                             <p className='mt-2 text-sm text-blue-400'>Please, Create an acount</p>
@@ -66,7 +66,7 @@ const Register = () => {
                             </a>
                         </div>
 
-                        <form className="mt-8 space-y-6 flex flex-col" action="#" method="POST">
+                        <form className="space-y-3 flex flex-col" action="#" method="POST">
                             <input type="hidden" name="remember" value="true" />
                             <div className="relative">
                                 {email.includes('@') && (
@@ -84,24 +84,24 @@ const Register = () => {
                                 <input className="w-full bg-gray-300 content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="" value={username} onChange={handleUsernameChange} />
                             </div>
                             <div className="mt-8 content-center relative">
-    <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
-    <input className="w-full bg-gray-300 content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="" value={password} onChange={handlePasswordChange} />
-    {/* Ajouter le SVG de la croix rouge si les mots de passe ne correspondent pas */}
-    {password !== confirmPassword && (
-        <div className="absolute top-0 right-0 mt-4 mr-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </div>
-    )}
-    {/* Ajouter l'icône de l'œil pour afficher le mot de passe */}
-    <div className="absolute top-0 right-0 mt-8 mr-4">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-100 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 2a7 7 0 00-7 7c0 1.568.515 3.019 1.386 4.202M17.764 16.5A7.96 7.96 0 0019 13c0-4.418-3.582-8-8-8s-8 3.582-8 8c0 1.713.538 3.295 1.452 4.612M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" />
-        </svg>
-    </div>
-</div>
+                                <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Password</label>
+                                <input className="w-full bg-gray-300 content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="" value={password} onChange={handlePasswordChange} />
+                                {/* Ajouter le SVG de la croix rouge si les mots de passe ne correspondent pas */}
+                                {password !== confirmPassword && (
+                                    <div className="absolute top-0 right-0 mt-4 mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </div>
+                                )}
+                                {/* Ajouter l'icône de l'œil pour afficher le mot de passe */}
+                                <div className="absolute top-0 right-0 mt-8 mr-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-100 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 2a7 7 0 00-7 7c0 1.568.515 3.019 1.386 4.202M17.764 16.5A7.96 7.96 0 0019 13c0-4.418-3.582-8-8-8s-8 3.582-8 8c0 1.713.538 3.295 1.452 4.612M12 16.5a4.5 4.5 0 100-9 4.5 4.5 0 000 9z" />
+                                    </svg>
+                                </div>
+                            </div>
 
                             <div className="mt-8 content-center relative">
                                 <label className="ml-3 text-sm font-bold text-gray-700 tracking-wide">Confirm your Password</label>
@@ -116,7 +116,7 @@ const Register = () => {
                                 )}
                             </div>
                             <div>
-                                <button type="submit" className="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                <button type="submit" className="w-full flex justify-center bg-gradient-to-r from-indigo-500 to-blue-600  hover:bg-gradient-to-l hover:from-blue-500 hover:to-indigo-600 text-gray-100 p-4 mt-6 rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                     Sign Up
                                 </button>
                             </div>
