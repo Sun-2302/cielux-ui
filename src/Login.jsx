@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
-
 import React, { useState } from 'react'; // Importez React depuis 'react', pas depuis "react"
 import './App.css';
-
 // Importez les icônes de React Icons
-import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaLinkedin, FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState(''); // État pour l'e-mail
@@ -32,7 +31,7 @@ const Login = () => {
             </div>
             <ul className="circles">
             {/* Placeholder circles */}
-            {[...Array(13)].map((_, index) => (
+            {[...Array(20)].map((_, index) => (
               <li key={index}></li>
             ))}
           </ul>
@@ -40,8 +39,8 @@ const Login = () => {
           <div className='md:flex md:items-center md:justify-center sm:w-auto md:h-full w-2/5 xl:w-2/5 p-10 md:p-10 lg:p-14 sm:rounded-lg md:rounded-none bg-white'>
             <div className='max-w-md w-full space-y-8'>
               <div className='text-center'>
-                <h2 className='mt-6 text-3xl from-bold text-blue-700'>Hello Fellow, Welcome back!</h2>
-                <p className='mt-2 text-sm text-blue-300'>Please Log In to your account</p>
+                <h2 className='mt-6 text-3xl from-bold text-blue-700'>Hello Fellow, Welcome to CielUX!</h2>
+                <p className='mt-2 text-sm text-blue-400'>Please Log In to your account</p>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <span className="h-px w-16 bg-gray-200"></span>
@@ -53,8 +52,8 @@ const Login = () => {
                 <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="w-11 h-11 items-center justify-center inline-flex rounded-2xl font-bold text-lg bg-blue-900 hover:shadow-lg cursor-pointer transition ease-in duration-300">
                   <FaFacebook className="w-4 h-4 text-white" />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-11 h-11 items-center justify-center inline-flex rounded-2xl font-bold text-lg text-white bg-blue-400 hover:shadow-lg cursor-pointer transition ease-in duration-300">
-                  <FaTwitter className="w-4 h-4" />
+                <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" className="w-11 h-11 items-center justify-center inline-flex rounded-2xl font-bold text-lg text-white bg-blue-400 hover:shadow-lg cursor-pointer transition ease-in duration-300">
+                  <FaGoogle className="w-4 h-4" />
                 </a>
                 <a href="https://in.linkedin.com" target="_blank" rel="noopener noreferrer" className="w-11 h-11 items-center justify-center inline-flex rounded-2xl font-bold text-lg text-white bg-blue-500 hover:shadow-lg cursor-pointer transition ease-in duration-300">
                   <FaLinkedin className="w-4 h-4" />
@@ -95,8 +94,8 @@ const Login = () => {
                   </button>
                 </div>
                 <p className="flex flex-col items-center justify-center mt-10 text-center text-md text-gray-500">
-                  <span> Do not have an account?</span>
-                  <a href="./Register.jsx" className="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Sign up</a>
+                  <span>Do not have an account?</span>
+                  <Link to="/register" className="text-indigo-400 hover:text-blue-500 no-underline hover:underline cursor-pointer transition ease-in duration-300">Sign up</Link>
                 </p>
               </form>
             </div>
