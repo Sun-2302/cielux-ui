@@ -17,6 +17,12 @@ const FileList = () => {
             });
     }, []);
 
+    // Fonction pour gérer le partage d'un fichier
+    const handleShare = (fileId) => {
+        // Implémentez la logique de partage ici, par exemple, ouvrez une boîte de dialogue de partage
+        console.log('Sharing file with ID:', fileId);
+    };
+
     return (
         <div>
             <h2>Uploaded Files</h2>
@@ -25,7 +31,13 @@ const FileList = () => {
                     <li key={file.id}>
                         <span>{file.name}</span>
                         <span>{file.type}</span>
-                        {/* Ajoutez d'autres informations sur le fichier si nécessaire */}
+                        <span>{file.size}</span>
+                        <span>{file.owner}</span>
+                        <span>{file.lastAccess}</span>
+                        <span>{file.modified}</span>
+                        {/* Options d'action pour le partage et autres */}
+                        <button onClick={() => handleShare(file.id)}>Share</button>
+                        {/* Ajoutez d'autres boutons ou icônes pour d'autres actions */}
                     </li>
                 ))}
             </ul>
