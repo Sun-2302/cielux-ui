@@ -37,7 +37,7 @@ const AddFile = () => {
             setErrorMessage('Error uploading file. Please try again later.');
         }
         finally{
-            setLoading(false)
+            setLoading(false);
         }
     };
 

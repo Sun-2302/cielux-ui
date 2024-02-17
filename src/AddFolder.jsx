@@ -12,6 +12,11 @@ const AddFolder = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if(!folderName.trim()){
+            console.error('Folder name is required.');
+            return;
+        }
+
         // Effectuer une requête POST à l'API pour ajouter le dossier
         axios.post('https://votre-api.com/dossiers', { name: folderName })
             .then(response => {
