@@ -5,6 +5,7 @@ import axios from 'axios';
 const AddFile = () => {
     const [file, setFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
+    const [loading, setLoading] = useState (false)
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
@@ -15,6 +16,11 @@ const AddFile = () => {
             setErrorMessage('Please select a file.');
             return;
         }
+
+
+        setLoading(true); 
+        
+
 
         const formData = new FormData();
         formData.append('file', file);
@@ -30,7 +36,12 @@ const AddFile = () => {
             console.error('Error uploading file:', error);
             setErrorMessage('Error uploading file. Please try again later.');
         }
+        finally{
+            setLoading(false)
+        }
     };
+
+
 
     return (
         <div>
