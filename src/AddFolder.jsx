@@ -11,7 +11,7 @@ const AddFolder = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+      
         if(!folderName.trim()){
             console.error('Folder name is required.');
             return;
