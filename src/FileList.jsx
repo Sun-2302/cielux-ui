@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FaShare } from 'react-icons/fa';
 
 const FileList = () => {
     const [files, setFiles] = useState([]);
@@ -36,7 +37,7 @@ const FileList = () => {
                         <span>{file.lastAccess}</span>
                         <span>{file.modified}</span>
                         {/* Options d'action pour le partage et autres */}
-                        <button onClick={() => handleShare(file.id)}>Share</button>
+                        <button onClick={() => handleShare(file.id)}><FaShare/>Share</button>
                         {/* Ajoutez d'autres boutons ou icônes pour d'autres actions */}
                     </li>
                 ))}

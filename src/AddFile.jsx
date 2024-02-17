@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FaUpload } from 'react-icons/fa';
 
 const AddFile = () => {
     const [file, setFile] = useState(null);
@@ -47,7 +48,7 @@ const AddFile = () => {
         <div>
             <h2>Add File</h2>
             <input type="file" onChange={handleFileChange} />
-            <button onClick={handleFileUpload}>Upload File</button>
+            <button onClick={handleFileUpload}><FaUpload/> Upload File</button>
             {errorMessage && <p>{errorMessage}</p>}
         </div>
     );
