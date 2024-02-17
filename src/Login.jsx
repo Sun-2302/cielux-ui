@@ -21,6 +21,11 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(email.trim() || !password.trim()){
+      alert("Please enter both email and password.");
+      return;
+    }
+    
     const url = 'https://gwfpf9wkpl.execute-api.eu-west-3.amazonaws.com/Prod/user';
 
     axios.get(url)

@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FaUpload } from 'react-icons/fa';
+
 
 const AddFile = () => {
     const [file, setFile] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
+
+    const [loading, setLoading] = useState (false)
+
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
@@ -15,6 +20,9 @@ const AddFile = () => {
             setErrorMessage('Please select a file.');
             return;
         }
+
+
+        setLoading(true); 
 
         const formData = new FormData();
         formData.append('file', file);
@@ -30,13 +38,22 @@ const AddFile = () => {
             console.error('Error uploading file:', error);
             setErrorMessage('Error uploading file. Please try again later.');
         }
+
+        finally{
+            setLoading(false);
+        }
     };
+
+    };
+
 
     return (
         <div>
             <h2>Add File</h2>
             <input type="file" onChange={handleFileChange} />
-            <button onClick={handleFileUpload}>Upload File</button>
+
+            <button onClick={handleFileUpload}><FaUpload/> Upload File</button>
+
             {errorMessage && <p>{errorMessage}</p>}
         </div>
     );
