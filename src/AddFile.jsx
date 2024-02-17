@@ -18,11 +18,8 @@ const AddFile = () => {
             return;
         }
 
-
         setLoading(true); 
         
-
-
         const formData = new FormData();
         formData.append('file', file);
 
@@ -41,7 +38,6 @@ const AddFile = () => {
             setLoading(false);
         }
     };
-
 
 
     return (
